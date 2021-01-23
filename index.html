@@ -48,14 +48,33 @@
                 </tbody>
             </table>
         </div>
+        <div class="field">
+            <div class="control">
+                <a id="inputDone" class="button">Nhập xong</a>
+            </div>
+        </div>
     </div>
+    <footer class="footer"></footer>
 
     <script>
         var button = document.getElementById('button');
         button.onclick = function () {
             utils.init();
 
+
+
         };
+
+        // utils.init();
+
+
+        var inputDone = document.getElementById('inputDone');
+        inputDone.onclick = function () {
+            utils.caculateResult();
+        }
+
+        utils.caculateAttributeOfElementFromStepsHistory();
+
 
         // var R1 = {
         //     i: 1,

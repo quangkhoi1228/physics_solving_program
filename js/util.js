@@ -1,6 +1,7 @@
 var utils = {
     elements: '',
     handle_step_history: '',
+    step: -1,
 
     init: function () {
 
@@ -20,6 +21,7 @@ var utils = {
         utils.elements.forEach(function (element) {
 
             var child = document.createElement('tr');
+            child.setAttribute('element', element);
             child.innerHTML = ` <tr name="${element}">
                                     <td>${element}</td>
                                     <td><input key="u"  type="text" class="input"></td>
@@ -30,12 +32,14 @@ var utils = {
         });
 
         var total = document.createElement('tr');
-        total.innerHTML = ` <tr>
+        total.setAttribute('element', 'input');
+
+        total.innerHTML = `
                                 <td>Mạch tổng</td>
                                 <td><input key="u"  type="text" class="input"></td>
                                 <td><input key="i" type="text" class="input"></td>
-                                <td><input key="r" type="text" class="input"></td>
-                            </tr>`;
+                                <td><input key="r" type="text" class="input"></td>`
+            ;
         container.appendChild(total);
     },
     detectInputElementAndExtractStep: function (input) {
@@ -68,7 +72,12 @@ var utils = {
                 elements.push(param2);
             }
             var step_history = [param1, param2, operator];
+
             handle_step_history[step] = step_history;
+
+            if (step > utils.step) {
+                utils.step = step + 1
+            }
             step_history.forEach(function (step_history_param) {
                 if (!['songsong', 'noitiep'].includes(step_history_param)) {
                     if (step_history_param.startsWith('(') && step_history_param.endsWith(')')) {
@@ -81,5 +90,62 @@ var utils = {
 
 
         });
+    },
+
+    caculateResult: function () {
+        utils.elementsInput = utils.getInput();
+
+
+        utils.caculateAttributeOfElementFromStepsHistory();
+
+    },
+
+    caculateAttributeOfElementFromStepsHistory: function () {
+        console.log('b');
+        var a = {
+            "elements":
+                ["R1", "R2"],
+            "step": 0,
+            "handle_step_history": { "0": ["R1", "R2", "songsong"] }, "elementsInput": {
+                "R2": { "u": "", "i": "", "r": "10" },
+                "R1": { "u": "", "i": "", "r": "15" },
+                "input": { "u": "18", "i": "", "r": "?" }
+            }
+        };
+        utils.elements = a.elements;
+        utils.step = a.step;
+        utils.handle_step_history = a.handle_step_history;
+        utils.elementsInput = a.elementsInput;
+
+
+        utils.elements.forEach(function (element) {
+            if (!element.includes('songsong') && !element.includes('noitiep') && element.startsWith('R')) {
+                var objetct = model_dientro;
+            }
+        })
+        // for (var i = 0; i < Object.keys(utils.handle_step_history).length; i++) {
+        //     console.log(i);
+        //     var handle_step = utils.handle_step_history[i];
+        //     console.log(handle_step);
+        // }
+
+
+    },
+    getInput: function () {
+        var listRow = document.querySelectorAll('#tableInputTbodyContainer tr');
+        var elements = {};
+        listRow.forEach(function (row) {
+            console.log(row);
+            var name = row.getAttribute('element');
+            elements[name] = {};
+            var listKey = row.querySelectorAll('[key]');
+
+            listKey.forEach(function (keyInput) {
+                var key = keyInput.getAttribute('key');
+                elements[name][key] = keyInput.value;
+            });
+        })
+
+        return elements;
     }
 };
