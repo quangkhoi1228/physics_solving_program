@@ -4,21 +4,21 @@ var model_dientro = {
     u: null,
     r: null,
     relation: {
-        i: {
+        1: {
             required: ['r', 'u'],
             key: 'i',
             function: function (options) {
                 return options.u / options.r;
             }
         },
-        u: {
+        2: {
             required: ['r', 'i'],
             key: 'u',
             function: function (options) {
                 return options.r * options.i;
             }
         },
-        r: {
+        3: {
             required: ['u', 'i'],
             key: 'r',
             function: function (options) {
