@@ -25,6 +25,6 @@ var model_dientro = {
                 return options.u / options.i;
             }
         },
-       
+
     }
 }

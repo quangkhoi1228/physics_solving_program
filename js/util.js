@@ -6,20 +6,37 @@ var utils = {
     input: '',
 
 
-
+    clear: function () {
+        document.getElementById('inputContainer').classList.add('is-hidden');
+        document.getElementById('resultContainer').classList.add('is-hidden');
+        document.getElementById('input').value = '';
+        utils.elements = '';
+        utils.handle_step_history = '';
+        utils.step = -1;
+        utils.element_result = {};
+        utils.input = '';
+    },
     init: function () {
+
         utils.elements = '';
         utils.handle_step_history = '';
         utils.step = -1;
         utils.element_result = {};
         utils.input = '';
 
-        var input = document.getElementById('input').value;
-        var input_result = utils.detectInputElementAndExtractStep(input);
-        utils.elements = input_result.elements;
-        utils.handle_step_history = input_result.handle_step_history;
+        var input = document.getElementById('input').value.trim();
+        if (input != '') {
 
-        utils.createTableElementsInput();
+            document.getElementById('inputContainer').classList.remove('is-hidden');
+
+            var input_result = utils.detectInputElementAndExtractStep(input);
+            utils.elements = input_result.elements;
+            utils.handle_step_history = input_result.handle_step_history;
+
+            utils.createTableElementsInput();
+        } else {
+            alert('Chưa nhập mạch');
+        }
 
     },
 
@@ -94,9 +111,16 @@ var utils = {
     },
 
     caculateResult: function () {
+
+        utils.element_result = {};
         utils.elementsInput = utils.getInput();
 
         utils.caculateAttributeOfElementFromStepsHistory();
+
+        document.getElementById('resultContainer').classList.remove('is-hidden');
+
+
+
 
     },
 
@@ -255,6 +279,7 @@ var utils = {
 
     showUserResult: function () {
         var container = document.querySelector('#tableOutputTbodyContainer');
+        container.innerHTML = '';
         var entries = Object.entries(utils.element_result).forEach(function (entry) {
             console.log(entry);
             var name = entry[0];
