@@ -24,6 +24,7 @@ var model_dientro = {
             function: function (options) {
                 return options.u / options.i;
             }
-        }
+        },
+       
     }
 }
