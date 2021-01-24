@@ -8,17 +8,35 @@
     <link rel="stylesheet" href="./css/bulma.min.css">
 
     <script src="./js/util.js"></script>
+    <script src="./js/model_dientro.js"></script>
+    <script src="./js/model_songsong.js"></script>
+    <script src="./js/model_noitiep.js"></script>
+
+
+
 
 </head>
 
 <body>
     <div class="container">
-        <div class="field">
-            <img class="image " src="./images/bai1.jpeg" alt="bái"
-                style="max-height: 5rem;">
+        <div class="columns">
+            <!-- <div class="column">
+                <div class="field">
+                    <img class="image " src="./images/bai1.jpeg" alt="bái"
+                        style="max-height: 5rem;">
+                </div>
+            </div> -->
+            <div class="column">
+                <div class="field">
+                    <img class="image " src="./images/bai2.png" alt="bái"
+                        style="max-width: 35rem;">
+                </div>
+            </div>
         </div>
+
         <div class="field">
-            <textarea id="input" class="textarea">R1 songsong R2</textarea>
+            <textarea id="input"
+                class="textarea">( R1 songsong R2 )  songsong R3 </textarea>
         </div>
         <div class="field">
             <div class="control">
@@ -60,7 +78,7 @@
         var button = document.getElementById('button');
         button.onclick = function () {
             utils.init();
-
+            console.log(utils);
 
 
         };
@@ -73,63 +91,9 @@
             utils.caculateResult();
         }
 
+        console.log(utils);
+
         utils.caculateAttributeOfElementFromStepsHistory();
-
-
-        // var R1 = {
-        //     i: 1,
-        //     u: 2,
-        //     r: null,
-        //     relation: {
-        //         i: {
-        //             required: ['r', 'u'],
-        //             function: function (options) {
-        //                 return options.r / options.u;
-        //             }
-        //         },
-        //         u: {
-        //             required: ['r', 'i'],
-        //             function: function (options) {
-        //                 return options.r / options.i;
-        //             }
-        //         },
-        //         r: {
-        //             required: ['u', 'i'],
-        //             function: function (options) {
-        //                 return options.u / options.i;
-        //             }
-        //         }
-
-
-        //     }
-        // }
-        // var listAttributeKey = Object.keys(R1);
-        // var listAttributeValue = Object.values(R1);
-
-        // var listRelation = Object.entries(R1.relation);
-        // console.log(listAttributeKey);
-        // console.log(listAttributeValue);
-
-        // console.log(listRelation);
-        // listRelation.forEach(function (element) {
-        //     console.log(element);
-        //     if (R1[element[0]] == null) {
-        //         var hasAllRequired = true;
-        //         var options = {};
-        //         element[1]['required'].forEach(function (requiredItem) {
-        //             if (R1[requiredItem] == null) {
-        //                 hasAllRequired = false;
-        //             } else {
-        //                 options[requiredItem] = R1[requiredItem];
-        //             }
-        //         });
-        //         if (hasAllRequired) {
-        //             R1[element[0]] = element[1]['function'](options);
-        //         }
-        //     }
-        // });
-
-        // console.log(R1);
 
     </script>
 </body>
