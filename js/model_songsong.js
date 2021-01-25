@@ -72,6 +72,48 @@ var model_songsong = {
                 return options.u;
             }
         },
+        10: {
+            required: ['param2.u'],
+            key: 'param1.u',
+            function: function (options) {
+                return options.param2.u;
+            }
+        },
+        11: {
+            required: ['param1.u'],
+            key: 'param2.u',
+            function: function (options) {
+                return options.param1.u;
+            }
+        },
+        12: {
+            required: ['i', 'param2.i'],
+            key: 'param1.i',
+            function: function (options) {
+                return options.i - options.param2.i;
+            }
+        },
+        13: {
+            required: ['param1.i', 'i'],
+            key: 'param2.i',
+            function: function (options) {
+                return options.i + options.param1.i;
+            }
+        },
+        14: {
+            required: ['r', 'param2.r'],
+            key: 'param1.r',
+            function: function (options) {
+                return 1 / ((1 / options.r) - (1 / options['param2'].r));
+            }
+        },
+        15: {
+            required: ['param1.r', 'r'],
+            key: 'param2.r',
+            function: function (options) {
+                return 1 / ((1 / options.r) - (1 / options['param1'].r));
+            }
+        },
 
     }
 }
