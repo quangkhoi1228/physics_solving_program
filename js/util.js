@@ -27,6 +27,8 @@ var utils = {
         var input = document.getElementById('input').value.trim();
         if (input != '') {
 
+            input = input.trim().replace(/\( /g, '(').replace(/\ \)/g, ')');
+
             document.getElementById('inputContainer').classList.remove('is-hidden');
 
             var input_result = utils.detectInputElementAndExtractStep(input);
@@ -166,7 +168,7 @@ var utils = {
                         object.operator = operator;
 
                         if (stepItem != 'input') {
-                            stepItem = '( ' + stepItem + ' )';
+                            stepItem = '(' + stepItem + ')';
                         }
 
                         createObject = true;
@@ -206,8 +208,9 @@ var utils = {
                     if (!(stepItem.includes('songsong') || stepItem.includes('noitiep')) || stepItem.startsWith('(')) {
                         stepItem = stepItem;
                     } else {
-                        stepItem = '( ' + stepItem + ' )';
+                        stepItem = '(' + stepItem + ')';
                     }
+                    console.log(stepItem);
 
                     item = utils.element_result[stepItem];
 
