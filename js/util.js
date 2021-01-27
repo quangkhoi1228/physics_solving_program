@@ -129,16 +129,16 @@ var utils = {
     },
 
     caculateAttributeOfElementFromStepsHistory: function () {
-        var a = {
-            "elements": ["input", "(R1 songsong R2)", "R3", "R1", "R2"],
-            "handle_step_history": {
-                "0": ["(R1 songsong R2)", "R3", "songsong", "input"], "1": ["R1", "R2", "songsong", "R1 songsong R2"]
-            }, "step": 1, "element_result": { "R3": { "name": "dientro", "i": "", "u": "", "r": 24, "relation": { "i": { "required": ["r", "u"], "key": "i" }, "u": { "required": ["r", "i"], "key": "u" }, "r": { "required": ["u", "i"], "key": "r" } } }, "input": { "name": "doanmach", "i": "", "u": 3.6, "r": "", "param1": "(R1 songsong R2)", "param2": "R3", "operator": "songsong", "relation": { "u": { "required": ["param1.r", "param2.r"], "key": "r" }, "i": { "required": ["param1.i", "param2.i"], "key": "i" }, "r": { "required": ["param1.u"], "key": "u" }, "u1": { "required": ["param2.u"], "key": "u" }, "i2": { "required": ["r", "u"], "key": "i" }, "u2": { "required": ["r", "i"], "key": "u" }, "r3": { "required": ["u", "i"], "key": "r" } } }, "R1": { "name": "dientro", "i": "", "u": "", "r": 9, "relation": { "i": { "required": ["r", "u"], "key": "i" }, "u": { "required": ["r", "i"], "key": "u" }, "r": { "required": ["u", "i"], "key": "r" } } }, "R2": { "name": "dientro", "i": "", "u": "", "r": 18, "relation": { "i": { "required": ["r", "u"], "key": "i" }, "u": { "required": ["r", "i"], "key": "u" }, "r": { "required": ["u", "i"], "key": "r" } } }, "(R1 songsong R2)": { "name": "doanmach", "i": "", "u": "", "r": "", "param1": "R1", "param2": "R2", "operator": "songsong", "relation": { "u": { "required": ["param1.r", "param2.r"], "key": "r" }, "i": { "required": ["param1.i", "param2.i"], "key": "i" }, "r": { "required": ["param1.u"], "key": "u" }, "u1": { "required": ["param2.u"], "key": "u" }, "i2": { "required": ["r", "u"], "key": "i" }, "u2": { "required": ["r", "i"], "key": "u" }, "r3": { "required": ["u", "i"], "key": "r" } } } }, "input": "(R1 songsong R2)  songsong R3 ", "elementsInput": { "R2": { "u": "", "i": "", "r": "18" }, "R1": { "u": "", "i": "", "r": "9" }, "R3": { "u": "", "i": "", "r": "24" }, "(R1 songsong R2)": { "u": "", "i": "", "r": "" }, "input": { "u": "3.6", "i": "", "r": "" } }
-        };
-        utils.elements = a.elements;
-        utils.step = a.step;
-        utils.handle_step_history = a.handle_step_history;
-        utils.elementsInput = a.elementsInput;
+        // var a = {
+        //     "elements": ["input", "(R1 songsong R2)", "R3", "R1", "R2"],
+        //     "handle_step_history": {
+        //         "0": ["(R1 songsong R2)", "R3", "songsong", "input"], "1": ["R1", "R2", "songsong", "R1 songsong R2"]
+        //     }, "step": 1, "element_result": { "R3": { "name": "dientro", "i": "", "u": "", "r": 24, "relation": { "i": { "required": ["r", "u"], "key": "i" }, "u": { "required": ["r", "i"], "key": "u" }, "r": { "required": ["u", "i"], "key": "r" } } }, "input": { "name": "doanmach", "i": "", "u": 3.6, "r": "", "param1": "(R1 songsong R2)", "param2": "R3", "operator": "songsong", "relation": { "u": { "required": ["param1.r", "param2.r"], "key": "r" }, "i": { "required": ["param1.i", "param2.i"], "key": "i" }, "r": { "required": ["param1.u"], "key": "u" }, "u1": { "required": ["param2.u"], "key": "u" }, "i2": { "required": ["r", "u"], "key": "i" }, "u2": { "required": ["r", "i"], "key": "u" }, "r3": { "required": ["u", "i"], "key": "r" } } }, "R1": { "name": "dientro", "i": "", "u": "", "r": 9, "relation": { "i": { "required": ["r", "u"], "key": "i" }, "u": { "required": ["r", "i"], "key": "u" }, "r": { "required": ["u", "i"], "key": "r" } } }, "R2": { "name": "dientro", "i": "", "u": "", "r": 18, "relation": { "i": { "required": ["r", "u"], "key": "i" }, "u": { "required": ["r", "i"], "key": "u" }, "r": { "required": ["u", "i"], "key": "r" } } }, "(R1 songsong R2)": { "name": "doanmach", "i": "", "u": "", "r": "", "param1": "R1", "param2": "R2", "operator": "songsong", "relation": { "u": { "required": ["param1.r", "param2.r"], "key": "r" }, "i": { "required": ["param1.i", "param2.i"], "key": "i" }, "r": { "required": ["param1.u"], "key": "u" }, "u1": { "required": ["param2.u"], "key": "u" }, "i2": { "required": ["r", "u"], "key": "i" }, "u2": { "required": ["r", "i"], "key": "u" }, "r3": { "required": ["u", "i"], "key": "r" } } } }, "input": "(R1 songsong R2)  songsong R3 ", "elementsInput": { "R2": { "u": "", "i": "", "r": "18" }, "R1": { "u": "", "i": "", "r": "9" }, "R3": { "u": "", "i": "", "r": "24" }, "(R1 songsong R2)": { "u": "", "i": "", "r": "" }, "input": { "u": "3.6", "i": "", "r": "" } }
+        // };
+        // utils.elements = a.elements;
+        // utils.step = a.step;
+        // utils.handle_step_history = a.handle_step_history;
+        // utils.elementsInput = a.elementsInput;
 
 
         //tạo các đối tượng điện trở và mạch
