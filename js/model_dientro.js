@@ -5,9 +5,8 @@ var model_dientro = {
     r: null,
     relation: {
         1: {
-            //
             required: ['r', 'u'],
-            description : 'I = U/R',
+            description : '$i = $u/$r',
             key: 'i',
             function: function (options) {
                 return options.u / options.r;

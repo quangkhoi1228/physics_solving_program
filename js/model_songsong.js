@@ -60,6 +60,7 @@ var model_songsong = {
         },
         8: {
             required: ['u'],
+            description: '$param1.u = $u',
             key: 'param1.u',
             function: function (options) {
                 return options.u;
@@ -73,6 +74,7 @@ var model_songsong = {
             }
         },
         10: {
+            description: '$param1.u = $param2.u',
             required: ['param2.u'],
             key: 'param1.u',
             function: function (options) {

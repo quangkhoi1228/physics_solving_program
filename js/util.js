@@ -4,7 +4,7 @@ var utils = {
     step: -1,
     element_result: {},
     input: '',
-    rule_step: 0,
+    rule_step: 1,
     rule_history: {},
 
 
@@ -129,16 +129,16 @@ var utils = {
     },
 
     caculateAttributeOfElementFromStepsHistory: function () {
-        // var a = {
-        //     "elements": ["input", "(R1 songsong R2)", "R3", "R1", "R2"],
-        //     "handle_step_history": {
-        //         "0": ["(R1 songsong R2)", "R3", "songsong", "input"], "1": ["R1", "R2", "songsong", "R1 songsong R2"]
-        //     }, "step": 1, "element_result": { "R3": { "name": "dientro", "i": "", "u": "", "r": 24, "relation": { "i": { "required": ["r", "u"], "key": "i" }, "u": { "required": ["r", "i"], "key": "u" }, "r": { "required": ["u", "i"], "key": "r" } } }, "input": { "name": "doanmach", "i": "", "u": 3.6, "r": "", "param1": "(R1 songsong R2)", "param2": "R3", "operator": "songsong", "relation": { "u": { "required": ["param1.r", "param2.r"], "key": "r" }, "i": { "required": ["param1.i", "param2.i"], "key": "i" }, "r": { "required": ["param1.u"], "key": "u" }, "u1": { "required": ["param2.u"], "key": "u" }, "i2": { "required": ["r", "u"], "key": "i" }, "u2": { "required": ["r", "i"], "key": "u" }, "r3": { "required": ["u", "i"], "key": "r" } } }, "R1": { "name": "dientro", "i": "", "u": "", "r": 9, "relation": { "i": { "required": ["r", "u"], "key": "i" }, "u": { "required": ["r", "i"], "key": "u" }, "r": { "required": ["u", "i"], "key": "r" } } }, "R2": { "name": "dientro", "i": "", "u": "", "r": 18, "relation": { "i": { "required": ["r", "u"], "key": "i" }, "u": { "required": ["r", "i"], "key": "u" }, "r": { "required": ["u", "i"], "key": "r" } } }, "(R1 songsong R2)": { "name": "doanmach", "i": "", "u": "", "r": "", "param1": "R1", "param2": "R2", "operator": "songsong", "relation": { "u": { "required": ["param1.r", "param2.r"], "key": "r" }, "i": { "required": ["param1.i", "param2.i"], "key": "i" }, "r": { "required": ["param1.u"], "key": "u" }, "u1": { "required": ["param2.u"], "key": "u" }, "i2": { "required": ["r", "u"], "key": "i" }, "u2": { "required": ["r", "i"], "key": "u" }, "r3": { "required": ["u", "i"], "key": "r" } } } }, "input": "(R1 songsong R2)  songsong R3 ", "elementsInput": { "R2": { "u": "", "i": "", "r": "18" }, "R1": { "u": "", "i": "", "r": "9" }, "R3": { "u": "", "i": "", "r": "24" }, "(R1 songsong R2)": { "u": "", "i": "", "r": "" }, "input": { "u": "3.6", "i": "", "r": "" } }
-        // };
-        // utils.elements = a.elements;
-        // utils.step = a.step;
-        // utils.handle_step_history = a.handle_step_history;
-        // utils.elementsInput = a.elementsInput;
+        var a = {
+            "elements": ["input", "(R1 songsong R2)", "R3", "R1", "R2"],
+            "handle_step_history": {
+                "0": ["(R1 songsong R2)", "R3", "songsong", "input"], "1": ["R1", "R2", "songsong", "R1 songsong R2"]
+            }, "step": 1, "element_result": { "R3": { "name": "dientro", "i": "", "u": "", "r": 24, "relation": { "i": { "required": ["r", "u"], "key": "i" }, "u": { "required": ["r", "i"], "key": "u" }, "r": { "required": ["u", "i"], "key": "r" } } }, "input": { "name": "doanmach", "i": "", "u": 3.6, "r": "", "param1": "(R1 songsong R2)", "param2": "R3", "operator": "songsong", "relation": { "u": { "required": ["param1.r", "param2.r"], "key": "r" }, "i": { "required": ["param1.i", "param2.i"], "key": "i" }, "r": { "required": ["param1.u"], "key": "u" }, "u1": { "required": ["param2.u"], "key": "u" }, "i2": { "required": ["r", "u"], "key": "i" }, "u2": { "required": ["r", "i"], "key": "u" }, "r3": { "required": ["u", "i"], "key": "r" } } }, "R1": { "name": "dientro", "i": "", "u": "", "r": 9, "relation": { "i": { "required": ["r", "u"], "key": "i" }, "u": { "required": ["r", "i"], "key": "u" }, "r": { "required": ["u", "i"], "key": "r" } } }, "R2": { "name": "dientro", "i": "", "u": "", "r": 18, "relation": { "i": { "required": ["r", "u"], "key": "i" }, "u": { "required": ["r", "i"], "key": "u" }, "r": { "required": ["u", "i"], "key": "r" } } }, "(R1 songsong R2)": { "name": "doanmach", "i": "", "u": "", "r": "", "param1": "R1", "param2": "R2", "operator": "songsong", "relation": { "u": { "required": ["param1.r", "param2.r"], "key": "r" }, "i": { "required": ["param1.i", "param2.i"], "key": "i" }, "r": { "required": ["param1.u"], "key": "u" }, "u1": { "required": ["param2.u"], "key": "u" }, "i2": { "required": ["r", "u"], "key": "i" }, "u2": { "required": ["r", "i"], "key": "u" }, "r3": { "required": ["u", "i"], "key": "r" } } } }, "input": "(R1 songsong R2)  songsong R3 ", "elementsInput": { "R2": { "u": "", "i": "", "r": "18" }, "R1": { "u": "", "i": "", "r": "9" }, "R3": { "u": "", "i": "", "r": "24" }, "(R1 songsong R2)": { "u": "", "i": "", "r": "" }, "input": { "u": "3.6", "i": "", "r": "" } }
+        };
+        utils.elements = a.elements;
+        utils.step = a.step;
+        utils.handle_step_history = a.handle_step_history;
+        utils.elementsInput = a.elementsInput;
 
 
         //tạo các đối tượng điện trở và mạch
@@ -212,7 +212,6 @@ var utils = {
                     } else {
                         stepItem = '(' + stepItem + ')';
                     }
-                    console.log(stepItem);
 
                     item = utils.element_result[stepItem];
 
@@ -257,8 +256,7 @@ var utils = {
                                     utils.element_result[utils.element_result[stepItem][param]][paramAttribute] = parseFloat((item['relation'][key].function(options).toFixed(2)));
                                     hasNewValue = true;
 
-                                    utils.rule_history[utils.rule_step] = item['relation'][key];
-                                    utils.rule_step += 1;
+                                    utils.addRuleStep(item, item['relation'][key], stepItem, parseFloat((item['relation'][key].function(options).toFixed(2))));
                                 }
 
                             }
@@ -267,8 +265,9 @@ var utils = {
                             if (hasRequired && ['', '?'].includes(utils.element_result[stepItem][attributeName])) {
                                 utils.element_result[stepItem][attributeName] = parseFloat((item['relation'][key].function(options).toFixed(2)));
                                 hasNewValue = true;
-                                utils.rule_history[utils.rule_step] = item['relation'][key];
-                                utils.rule_step += 1;
+                                utils.addRuleStep(item, item['relation'][key], stepItem, parseFloat((item['relation'][key].function(options).toFixed(2))));
+
+
                             }
                         }
 
@@ -285,11 +284,34 @@ var utils = {
 
     },
 
+    addRuleStep: function (item, relation, name, value) {
+
+        var content = '';
+        if (relation.hasOwnProperty('description')) {
+            var param1, param2;
+            if (item.name == 'doanmach') {
+                param1 = item.param1;
+                param2 = item.param2;
+            }
+            content = relation.description.replace('$u', name + 'U').replace('$i', name + 'I').replace('$r', name + 'R').replace('$param1', param1).replace('$param2', param2).replace('.u', name + 'U').replace('.i', name + 'I').replace('.r', name + 'R');
+            console.log(relation.key);
+         
+
+        } else {
+            content = 'not description ' + relation['key'];
+        }
+
+        utils.rule_history[utils.rule_step] = {
+            content: content,
+            value: value,
+        };
+        utils.rule_step += 1;
+    },
+
     showUserResult: function () {
         var container = document.querySelector('#tableOutputTbodyContainer');
         container.innerHTML = '';
         Object.entries(utils.element_result).forEach(function (entry) {
-            console.log(entry);
             var name = entry[0];
             var value = entry[1];
             var tr = document.createElement('tr');
@@ -301,6 +323,27 @@ var utils = {
         `;
             container.appendChild(tr);
         })
+
+        console.log(utils.rule_history);
+
+        var container1 = document.querySelector('#tableRuleResultTbodyContainer');
+        container1.innerHTML = '';
+        Object.entries(utils.rule_history).forEach(function (entry) {
+            var step = entry[0];
+            var content = entry[1].content;
+            var value = entry[1].value;
+
+            var tr = document.createElement('tr');
+            tr.innerHTML = `
+            <td>${step}</td>
+            <td>${value}</td>
+            <td>${content}</td>
+        `;
+            container1.appendChild(tr);
+        })
+
+        console.log(utils.rule_history);
+
     },
     getInput: function () {
         var listRow = document.querySelectorAll('#tableInputTbodyContainer tr');

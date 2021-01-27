@@ -29,6 +29,7 @@ var model_noitiep = {
             }
         },
         4: {
+            description: '$u = $param1.u + $param2.u',
             required: ['param1.u', 'param2.u'],
             key: 'u',
             function: function (options) {
@@ -36,6 +37,7 @@ var model_noitiep = {
             }
         },
         5: {
+            description: '$i = $u / $r',
             required: ['r', 'u'],
             key: 'i',
             function: function (options) {
