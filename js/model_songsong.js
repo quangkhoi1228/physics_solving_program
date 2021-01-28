@@ -8,13 +8,15 @@ var model_songsong = {
     operator: null,
     relation: {
         1: {
+            description: '$r = ($param1.r * $param2.r)/($param1.r + $param2.r)',
             required: ['param1.r', 'param2.r'],
             key: 'r',
             function: function (options) {
-                return 1 / ((1 / options['param1'].r) + (1 / options['param2'].r));
+                return (options['param1'].r * options['param2'].r) / (options['param1'].r + options['param2'].r);
             }
         },
         2: {
+            description: '$i = $param1.i + $param2.i',
             required: ['param1.i', 'param2.i'],
             key: 'i',
             function: function (options) {
@@ -22,6 +24,7 @@ var model_songsong = {
             }
         },
         3: {
+            description: '$u = $param1.u',
             required: ['param1.u'],
             key: 'u',
             function: function (options) {
@@ -29,6 +32,7 @@ var model_songsong = {
             }
         },
         4: {
+            description: '$u = $param2.u',
             required: ['param2.u'],
             key: 'u',
             function: function (options) {
@@ -38,6 +42,7 @@ var model_songsong = {
 
 
         5: {
+            description: '$i = $u / $r',
             required: ['r', 'u'],
             key: 'i',
             function: function (options) {
@@ -45,6 +50,7 @@ var model_songsong = {
             }
         },
         6: {
+            description: '$u = $r * $i',
             required: ['r', 'i'],
             key: 'u',
             function: function (options) {
@@ -52,6 +58,7 @@ var model_songsong = {
             }
         },
         7: {
+            description: '$r = $u / $i',
             required: ['u', 'i'],
             key: 'r',
             function: function (options) {
@@ -59,14 +66,15 @@ var model_songsong = {
             }
         },
         8: {
-            required: ['u'],
             description: '$param1.u = $u',
+            required: ['u'],
             key: 'param1.u',
             function: function (options) {
                 return options.u;
             }
         },
         9: {
+            description: '$param2.u = $u',
             required: ['u'],
             key: 'param2.u',
             function: function (options) {
@@ -82,6 +90,7 @@ var model_songsong = {
             }
         },
         11: {
+            description: '$param2.u = $param1.u',
             required: ['param1.u'],
             key: 'param2.u',
             function: function (options) {
@@ -89,6 +98,7 @@ var model_songsong = {
             }
         },
         12: {
+            description: '$param1.i = $i - $param2.i',
             required: ['i', 'param2.i'],
             key: 'param1.i',
             function: function (options) {
@@ -96,6 +106,7 @@ var model_songsong = {
             }
         },
         13: {
+            description: '$param2.i = $i - $param1.i',
             required: ['param1.i', 'i'],
             key: 'param2.i',
             function: function (options) {
@@ -103,6 +114,7 @@ var model_songsong = {
             }
         },
         14: {
+            description: '$param1.r = ($param2.r * $r)/($param2.r - $r)',
             required: ['r', 'param2.r'],
             key: 'param1.r',
             function: function (options) {
@@ -110,6 +122,7 @@ var model_songsong = {
             }
         },
         15: {
+            description: '$param2.r = ($param1.r * $r)/($param1.r - $r)',
             required: ['param1.r', 'r'],
             key: 'param2.r',
             function: function (options) {

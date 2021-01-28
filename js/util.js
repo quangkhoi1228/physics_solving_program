@@ -293,9 +293,9 @@ var utils = {
                 param1 = item.param1;
                 param2 = item.param2;
             }
-            content = relation.description.replace('$u', name + 'U').replace('$i', name + 'I').replace('$r', name + 'R').replace('$param1', param1).replace('$param2', param2).replace('.u', name + 'U').replace('.i', name + 'I').replace('.r', name + 'R');
+            content = relation.description.replaceAll('$u', name + '_U').replaceAll('$i', name + '_I').replaceAll('$r', name + '_R').replaceAll('$param1', param1).replaceAll('$param2', param2).replaceAll('.u', '_U').replaceAll('.i', '_I').replaceAll('.r', '_R');
             console.log(relation.key);
-         
+
 
         } else {
             content = 'not description ' + relation['key'];

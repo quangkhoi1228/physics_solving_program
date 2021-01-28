@@ -8,6 +8,7 @@ var model_noitiep = {
     operator: null,
     relation: {
         1: {
+            description: '$r = $param1.r + $param2.r',
             required: ['param1.r', 'param2.r'],
             key: 'r',
             function: function (options) {
@@ -15,6 +16,7 @@ var model_noitiep = {
             }
         },
         2: {
+            description: '$i = $param1.i',
             required: ['param1.i'],
             key: 'i',
             function: function (options) {
@@ -22,6 +24,7 @@ var model_noitiep = {
             }
         },
         3: {
+            description: '$i = $param2.i',
             required: ['param2.i'],
             key: 'i',
             function: function (options) {
@@ -45,6 +48,7 @@ var model_noitiep = {
             }
         },
         6: {
+            description: '$u = $r * $i',
             required: ['r', 'i'],
             key: 'u',
             function: function (options) {
@@ -52,6 +56,7 @@ var model_noitiep = {
             }
         },
         7: {
+            description: '$r = $u / $i',
             required: ['u', 'i'],
             key: 'r',
             function: function (options) {
@@ -59,6 +64,7 @@ var model_noitiep = {
             }
         },
         8: {
+            description: '$param1.i = $i',
             required: ['i'],
             key: 'param1.i',
             function: function (options) {
@@ -66,6 +72,7 @@ var model_noitiep = {
             }
         },
         9: {
+            description: '$param2.i = $i',
             required: ['i'],
             key: 'param2.i',
             function: function (options) {
@@ -74,6 +81,7 @@ var model_noitiep = {
         },
 
         10: {
+            description: '$param1.i = $param2.i',
             required: ['param2.i'],
             key: 'param1.i',
             function: function (options) {
@@ -81,6 +89,7 @@ var model_noitiep = {
             }
         },
         11: {
+            description: '$param2.i = $param1.i',
             required: ['param1.i'],
             key: 'param2.i',
             function: function (options) {
@@ -88,6 +97,7 @@ var model_noitiep = {
             }
         },
         12: {
+            description: '$param1.r = $r - param2.r',
             required: ['r', 'param2.r'],
             key: 'param1.r',
             function: function (options) {
@@ -95,6 +105,7 @@ var model_noitiep = {
             }
         },
         13: {
+            description: '$param2.r = $r - $param1.r',
             required: ['param1.r', 'r'],
             key: 'param2.r',
             function: function (options) {
@@ -102,6 +113,7 @@ var model_noitiep = {
             }
         },
         14: {
+            description: '$param1.u = $u - $param2.u',
             required: ['u', 'param2.u'],
             key: 'param1.u',
             function: function (options) {
@@ -109,6 +121,7 @@ var model_noitiep = {
             }
         },
         15: {
+            description: '$param2.u = $u - $param1.u',
             required: ['param1.u', 'u'],
             key: 'param2.u',
             function: function (options) {
