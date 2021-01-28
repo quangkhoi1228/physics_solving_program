@@ -110,6 +110,7 @@ var model_songsong = {
             required: ['param1.i', 'i'],
             key: 'param2.i',
             function: function (options) {
+                console.log(options);
                 return options.i + options.param1.i;
             }
         },

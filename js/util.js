@@ -234,7 +234,7 @@ var utils = {
                                 var param = requiredItem.split('.')[0];
                                 var paramAttribute = requiredItem.split('.')[1];
 
-                                if (utils.element_result[item[param]][paramAttribute] == '' || utils.element_result[item[param]][paramAttribute] == null) {
+                                if (utils.element_result[item[param]][paramAttribute] == '' || utils.element_result[item[param]][paramAttribute] == null|| utils.element_result[item[param]][paramAttribute] == '?') {
                                     hasRequired = false;
                                 } else {
                                     options[param] = utils.element_result[item[param]];
@@ -258,6 +258,7 @@ var utils = {
                                     if (output == '?') {
                                         isCaculateRequied = true;
                                     }
+                                    console.log(item['relation'][key]);
                                     utils.element_result[utils.element_result[stepItem][param]][paramAttribute] = parseFloat((item['relation'][key].function(options).toFixed(2)));
                                     hasNewValue = true;
 
