@@ -202,6 +202,7 @@ var utils = {
 
     caculateAttributeFromRelation: function () {
         var hasNewValue = false;
+        var isCaculateRequied = false;
         for (var j = Object.keys(utils.handle_step_history).length - 1; j >= 0; j--) {
             var handle_step = utils.handle_step_history[j];
             handle_step.forEach(function (stepItem, index) {
@@ -252,20 +253,31 @@ var utils = {
 
                                 var output = utils.element_result[utils.element_result[stepItem][param]][paramAttribute];
 
-                                if (['', '?'].includes(output)) {
+
+                                if (['', '?'].includes(output) && !isCaculateRequied) {
+                                    if (output == '?') {
+                                        isCaculateRequied = true;
+                                    }
                                     utils.element_result[utils.element_result[stepItem][param]][paramAttribute] = parseFloat((item['relation'][key].function(options).toFixed(2)));
                                     hasNewValue = true;
 
                                     utils.addRuleStep(item, item['relation'][key], stepItem, parseFloat((item['relation'][key].function(options).toFixed(2))));
+
                                 }
 
                             }
                         } else {
 
-                            if (hasRequired && ['', '?'].includes(utils.element_result[stepItem][attributeName])) {
+
+                            if (hasRequired && ['', '?'].includes(utils.element_result[stepItem][attributeName]) && !isCaculateRequied) {
+                                if (utils.element_result[stepItem][attributeName] == '?') {
+                                    isCaculateRequied = true;
+                                }
+
                                 utils.element_result[stepItem][attributeName] = parseFloat((item['relation'][key].function(options).toFixed(2)));
                                 hasNewValue = true;
                                 utils.addRuleStep(item, item['relation'][key], stepItem, parseFloat((item['relation'][key].function(options).toFixed(2))));
+
 
 
                             }
@@ -276,11 +288,16 @@ var utils = {
             })
         }
 
-        if (hasNewValue) {
-            utils.caculateAttributeFromRelation();
-        } else {
+        if (isCaculateRequied) {
             utils.showUserResult();
+        } else {
+            if (hasNewValue) {
+                utils.caculateAttributeFromRelation();
+            } else {
+                utils.showUserResult();
+            }
         }
+
 
     },
 
