@@ -331,11 +331,14 @@ var utils = {
         Object.entries(utils.rule_history).forEach(function (entry) {
             var step = entry[0];
             var content = entry[1].content;
+            var key = content.split('=')[0].trim();
+
             var value = entry[1].value;
 
             var tr = document.createElement('tr');
             tr.innerHTML = `
             <td>${step}</td>
+            <td>${key}</td>
             <td>${value}</td>
             <td>${content}</td>
         `;
