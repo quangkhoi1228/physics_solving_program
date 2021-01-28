@@ -225,7 +225,7 @@ var utils = {
 
                             if (!requiredItem.includes('param')) {
 
-                                if (item[requiredItem] == '' || item[requiredItem] == null) {
+                                if (item[requiredItem] == '' || item[requiredItem] == null || item[requiredItem] == '?') {
                                     hasRequired = false;
                                 } else {
                                     options[requiredItem] = item[requiredItem];
