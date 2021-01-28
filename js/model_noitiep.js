@@ -109,7 +109,7 @@ var model_noitiep = {
             required: ['param1.r', 'r'],
             key: 'param2.r',
             function: function (options) {
-                return options.r + options.param1.r;
+                return options.r - options.param1.r;
             }
         },
         14: {
@@ -125,7 +125,7 @@ var model_noitiep = {
             required: ['param1.u', 'u'],
             key: 'param2.u',
             function: function (options) {
-                return options.u + options.param1.u;
+                return options.u - options.param1.u;
             }
         },
 
