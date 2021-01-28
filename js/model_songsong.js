@@ -106,7 +106,7 @@ var model_songsong = {
             }
         },
         13: {
-            description: '$param2.i = $i - $param1.i',
+            description: '$param2.i = $i + $param1.i',
             required: ['param1.i', 'i'],
             key: 'param2.i',
             function: function (options) {
